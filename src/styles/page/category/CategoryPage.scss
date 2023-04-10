@@ -1,0 +1,9 @@
+.CategoryPage {
+  &__title {
+    @extend .Main__Article-title;
+  }
+
+  &__ArticleList {
+    @extend .Main__ArticleList;
+  }
+}

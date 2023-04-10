@@ -1,0 +1,39 @@
+.Join {
+  @extend .Modal;
+
+  &__close {
+    &-container {
+      @extend .Modal__close-container;
+    }
+
+    &-btn {
+      @extend .Modal__close-btn;
+    }
+  }
+
+  &__title {
+    @extend .Login__title;
+  }
+
+  &__inner {
+    @extend .Modal__inner;
+  }
+
+  &__input {
+    &-container {
+      @extend .Login__input-container;
+    }
+
+    &-item {
+      @extend .Login__input-item;
+    }
+  }
+
+  .Button {
+    &--square {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 4rem;
+    }
+  }
+}

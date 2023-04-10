@@ -1,0 +1,45 @@
+.Page {
+  min-height: 100vh;
+  padding: $header-height 0 $footer-height 0;
+  transition: padding 0.3s, background $transition-dark;
+
+  @media(max-width: $laptop) {
+    padding-top: 7.2rem;
+  }
+
+  // @media(max-width: $tablet) {
+  //   padding-top: 4rem;
+  // }
+
+  @media(max-width: $mobile) {
+    padding-top: 5.4rem;
+  }
+
+  &__inner {
+    @include inner;
+    padding: 3.2rem 0 12.8rem 0;
+    display: grid;
+    grid-template-columns: auto 96rem;
+
+
+    @media(max-width: 1200px) {
+      padding: 3.2rem 2.4rem 12.8rem 2.4rem;
+      grid-template-columns: auto 80rem;
+    }
+
+    @media(max-width: $laptop) {
+      display: block;
+    }
+
+    @media(max-width: $tablet) {
+      padding: 3.2rem 2.4rem 6.4rem 2.4rem;
+    }
+
+  }
+}
+
+.dark {
+  .Page {
+    background: $dark_bg_01;
+  }
+}

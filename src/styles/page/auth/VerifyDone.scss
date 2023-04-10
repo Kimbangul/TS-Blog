@@ -1,0 +1,24 @@
+.VerifyDone {
+  @extend .Error;
+
+  &__emoji {
+    @extend .Error__emoji;
+    @include jump(media, 1.1, 0.9, -1rem);
+  }
+
+  &__title {
+    @extend .Error__title;
+  }
+
+  &__desc {
+    @extend .Error__desc;
+  }
+
+  &__button {
+    @extend .Error__button;
+
+    &-container {
+      @extend .Error__button-container;
+    }
+  }
+}

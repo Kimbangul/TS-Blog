@@ -1,0 +1,199 @@
+.Post__content .toastui-editor-contents {
+
+  * {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 1.8rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    font-size: 3.6rem;
+    margin-bottom: 3.2rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+    border-bottom: none;
+    margin-top: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  p {
+    font-size: 1.8rem;
+    margin: 1.6rem 0;
+  }
+
+  code {
+    font-size: 1.6rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .toastui-editor-ww-code-block {
+    padding: 1.6rem;
+    display: block;
+    width: 100%;
+    font-size: 1.6rem;
+    margin: 2.4rem 0;
+  }
+
+
+  ul {
+    &>li {
+      font-size: 1.8rem;
+      margin-top: 0.8rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-top: 0.9rem;
+      }
+    }
+  }
+
+  a {
+    font-size: 1.8rem;
+    color: $purple_01;
+  }
+
+  del{
+    text-decoration: line-through;
+  }
+
+  blockquote {
+    font-size: 2rem;
+    margin: 2.4rem 0;
+  }
+
+  pre{
+    border-radius: 1.6rem;
+  }
+
+  table{
+    th{
+      background: $border_02;
+  p{
+    color: $text_03;
+    font-weight: 600;
+  }
+    }
+  }
+
+  img{
+    margin: 0 auto;
+  }
+}
+
+.toastui-editor{
+  &-ww-container{
+    background: transparent !important;
+  }
+}
+.dark{
+  .Post__content .toastui-editor-contents {
+    *{
+      color: $dark_text_05;
+    }
+    blockquote{
+      border-left: 4px solid $dark_text_01;
+    }
+      del{
+        color: $dark_text_01;
+      }
+      code{
+        background-color: $dark_border_02;
+      }
+      pre{
+        background-color: $dark_border_02;
+        color: $dark_text_03;
+      }
+     table{
+       border: 0.1rem solid $dark_border_01;
+       th{
+         background: $dark_border_01;
+         color: $dark_text_03;
+         border: 0.1rem solid $dark_border_01;
+       }
+       td{
+        border: 0.1rem solid $dark_border_01;
+       }
+     }
+  }
+  .ProseMirror{
+    color: $dark_text_05;
+    .toastui-editor-md-table-cell{
+      color: $dark_text_05;
+    }
+    .toastui-editor-md-code.toastui-editor-md-marked-text{
+      color: $dark_text_05;
+    }
+    .toastui-editor-md-code-block-line-background{
+      background: $dark_border_01;
+    }
+  }
+  .toastui-editor{
+    &-defaultUI{
+      border: 0.1rem solid $dark_border_01;
+      &-toolbar{
+        background: $dark_border_01;
+        border-bottom: $dark_border_01;
+        button{
+          border-color: transparent;
+          filter: invert(1);
+        }
+      }
+      .toastui-editor-md-tab-container{
+        background: $dark_border_01 ;
+        border-bottom: none;
+        .tab-item{
+          background: $text_03;
+          color: $dark_text_01;
+          border-color:  transparent;
+          &.active{
+            background: $text-02;
+            border-color:  transparent;
+            color: $dark_text_05;
+          }
+        }
+      }
+    }
+    &-mode{
+      &-switch{
+        background: $dark_border_01;
+        border-top: 0.1rem solid $dark_border_01;
+
+        .tab-item{
+          background: $text_03;
+          color: $dark_text_01;
+          border-color:  transparent;
+          &.active{
+            background: $text-02;
+            border-color:  transparent;
+            color: $dark_text_05;
+          }
+        }
+      }
+    }
+  }
+}

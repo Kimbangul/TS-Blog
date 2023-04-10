@@ -1,0 +1,174 @@
+.PostInfo {
+  padding-bottom: 5.6rem;
+  border-bottom: 0.1rem solid $border_02;
+
+  &__cate {
+    @include subtitle2_medium;
+    color: $text_03;
+    transition: color $transition-dark;
+  }
+
+  &__title {
+    @include h1_bold;
+    font-size: 4rem;
+    color: $text_05;
+    font-weight: 900;
+    margin-top: 0.8rem;
+    transition: $transition-dark;
+
+    @media(max-width: $tablet) {
+      @include h1_bold;
+    }
+
+    @media(max-width: $mobile) {
+      @include h2_bold;
+    }
+
+    &-container {
+      @include flex(space-between, center);
+
+      @media(max-width: $tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+
+  }
+
+  &__comment {
+    &-number {
+      @include flex(center, center, 0.8rem);
+      @include subtitle1_bold;
+      color: $purple_01;
+
+      svg {
+        width: 2.4rem;
+
+        path {
+          fill: $text_03;
+          transition: fill $transition-dark;
+        }
+      }
+
+      @media(max-width: $tablet) {
+        margin-top: 1.6rem;
+      }
+    }
+
+  }
+
+  &__time {
+    @include flex(flex-start, center);
+    @include subtitle1_regular;
+    color: $text_03;
+    margin-top: 2.4rem;
+    transition: $transition-dark;
+
+    @media(max-width: $tablet) {
+      // display: block;
+      @include subtitle2_regular;
+    }
+
+    @media(max-width: $mobile) {
+      @include body_regular;
+    }
+
+    @media(max-width: 400px) {
+      @include caption1_regular;
+      // display: block;
+    }
+
+    &-cate {
+      margin-right: 0.4rem;
+      transition: color $transition-dark;
+
+      @media(max-width: $tablet) {
+        display: inline-block;
+
+        // @media(max-width: 400px) {
+        //   margin-top: 0.4rem;
+
+        //   &:first-child {
+        //     margin-top: 0;
+        //   }
+        // }
+
+      }
+    }
+
+    &-item {
+      margin-right: 1.6rem;
+      transition: $transition-dark;
+
+      @media(max-width: $tablet) {
+        display: inline-block;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+
+  }
+
+  &__TagList {
+    @extend .TagList;
+    margin-top: 2.4rem;
+  }
+
+  &__controller {
+    @include flex(flex-end, center, 1.2rem);
+    margin-top: 3.2rem;
+    margin-bottom: -2.4rem;
+
+    &-button {
+      @extend .Button--square;
+      height: 4rem;
+      background: $border_02;
+      color: $text_03;
+      min-width: unset;
+
+
+      &--delete {
+        @extend .PostInfo__controller-button;
+        background: $red_bg_01;
+        color: $red_01;
+
+      }
+    }
+  }
+}
+
+.dark {
+  .PostInfo {
+    &__title {
+      color: $dark_text_05;
+    }
+
+    &__cate {
+      color: $dark_text_03;
+    }
+
+    &__time {
+      &-cate {
+        color: $dark_text_03;
+      }
+
+      &-item {
+        color: $dark_text_03;
+      }
+    }
+
+    &__comment {
+      &-number {
+        svg {
+          path {
+            fill: $dark_text_01;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.Search {
+    &__title {
+        @extend .PostInfo__title;
+    }
+
+    &__box {
+        @include flex(flex-start, center);
+        width: 80%;
+        margin-top: 5.4rem;
+        transition: $transition-dark;
+
+        &-input {
+            flex-grow: 1;
+            border-radius: 0.4rem 0 0 0.4rem;
+        }
+
+        &-button {
+            @extend .PostWrite__button--cancel;
+            min-width: unset;
+            border-radius: 0 0.4rem 0.4rem 0;
+        }
+
+        @media (max-width: $mobile) {
+            width: 100%;
+        }
+    }
+
+    &__ArticleList {
+        @extend .ArticleList;
+        margin-top: 3.2rem;
+    }
+
+    &__result {
+        margin-top: 6rem;
+    }
+
+    &__subtitle {
+        @extend .Main__Article-title;
+    }
+}

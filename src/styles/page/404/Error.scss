@@ -1,0 +1,69 @@
+.Error {
+  @extend .Page;
+  @include flex(center, center);
+
+  &__emoji {
+    font-size: 8rem;
+    @include flex(center, center);
+    @include fly(ufo, 1rem, 5s);
+    transform-origin: bottom;
+
+    @media(max-width: $mobile) {
+      font-size: 6.4rem;
+    }
+  }
+
+  &__title {
+    @include h1_bold;
+    @include poppins;
+    font-size: 4rem;
+    color: $text_04;
+    margin-top: 1.6rem;
+    transition: $transition_dark;
+
+    @media(max-width: $mobile) {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__desc {
+    @include subtitle1_regular;
+    text-align: center;
+    color: $text_03;
+    margin-top: 0.8rem;
+    transition: $transition_dark;
+
+    @media(max-width: $mobile) {
+      @include subtitle2_regular;
+    }
+  }
+
+  &__button {
+    @extend .Button--square;
+    background: $border_02;
+    color: $text_03;
+    transition: $transition_dark;
+
+    &-container {
+      @include flex(center, center);
+      margin-top: 3.2rem;
+    }
+  }
+}
+
+.dark {
+  .Error {
+    &__title {
+      color: $dark_text_04;
+    }
+
+    &__desc {
+      color: $dark_text_03;
+    }
+
+    &__button {
+      color: $dark_text_03;
+      background: $dark_border_02;
+    }
+  }
+}

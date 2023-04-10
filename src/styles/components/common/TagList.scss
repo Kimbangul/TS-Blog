@@ -1,0 +1,26 @@
+.Tag {
+  @include caption1_regular;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10rem;
+  background-color: $border_01;
+  color: $text_05;
+  transition: $transition-dark;
+
+  &List {
+    @include flex(flex-start, center, 1.2rem 1.6rem);
+    flex-wrap: wrap;
+    transition: $transition-dark;
+
+    @media (max-width: $mobile) {
+      gap: 0.8rem 0.8rem;
+    }
+  }
+}
+
+.dark {
+  .Tag {
+    background: $dark_border_01;
+    color: $dark_text_05;
+  }
+}

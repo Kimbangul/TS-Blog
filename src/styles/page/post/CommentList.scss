@@ -1,0 +1,110 @@
+.Comment {
+  &List {
+    padding: 2.4rem;
+    background: #FAF9F9;
+    transition: $transition-dark;
+  }
+
+  &Item {
+    @include flex;
+    margin-top: 4.8rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &__thumb {
+      position: relative;
+      width: 6rem;
+      height: 6rem;
+      overflow: hidden;
+      border-radius: 100%;
+      margin-right: 2.4rem;
+      flex-shrink: 0;
+      transition: 0.3s;
+
+      @media (max-width: $mobile) {
+        width: 3.2rem;
+        height: 3.2rem;
+        margin-right: 1.6rem;
+      }
+    }
+
+    &__name {
+      @include subtitle1_bold;
+      color: $text_05;
+      transform: $transition-dark;
+
+      &-container {
+        @include flex(flex-start, center, 0.8rem);
+        margin-top: 0.4rem;
+      }
+    }
+
+    &__info {
+      @include flex(space-between, center);
+
+      @media (max-width: $mobile) {
+        display: block;
+      }
+    }
+
+    &__id {
+      @include caption1_regular;
+      color: $text_03;
+      transition: $transition-dark;
+    }
+
+    &__date {
+      @extend .CommentItem__id;
+
+      @media (max-width: $mobile) {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    &__contents {
+      @include body_regular;
+      color: $text_04;
+      margin-top: 0.8rem;
+      transition: $transition-dark;
+
+      &-container {
+        flex-grow: 1;
+
+        @media (max-width: $mobile) {
+          position: relative;
+          padding-bottom: 3.2em;
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .Comment {
+    &List {
+      background: $dark_border_02;
+    }
+
+    &Item {
+      &__name {
+        color: $dark_text_05;
+      }
+
+      &__contents {
+        color: $dark_text_04;
+      }
+
+
+      &__id {
+        color: $dark_text_01;
+      }
+
+      &__date {
+        color: $dark_text_01;
+      }
+    }
+  }
+}

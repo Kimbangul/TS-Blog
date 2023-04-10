@@ -1,0 +1,74 @@
+.Login {
+  &__title {
+    @include h2_bold;
+    color: $text_05;
+    text-align: center;
+    transition: all $transition-dark;
+  }
+
+  &__inner {
+    @extend .Modal__inner;
+  }
+
+  &__input {
+    &-container {
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 2.4rem;
+    }
+
+    &-item {
+      @include flex;
+      flex-direction: column;
+      margin-top: 2.4rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .Input {
+        margin-top: 0.8rem;
+        width: 100%;
+
+      }
+    }
+
+  }
+
+  &__desc {
+    display: block;
+    text-align: right;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3.2rem;
+
+    &-button {
+      @include body_medium;
+      text-decoration: underline;
+      cursor: pointer;
+      color: $purple_01;
+    }
+  }
+}
+
+.dark {
+  & .Login {
+    background: rgba(0, 0, 0, 0.7);
+
+    &__close {
+      &-btn {
+        path {
+          fill: $dark_text_01;
+        }
+      }
+    }
+
+    &__title {
+      color: $dark_text_05;
+    }
+
+    &__inner {
+      background: $dark_bg_01;
+    }
+  }
+}

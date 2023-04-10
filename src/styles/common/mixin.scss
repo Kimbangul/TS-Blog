@@ -1,0 +1,338 @@
+@mixin flex($jc: flex-start, $ai: flex-start, $flexGap: 0, $direction: row) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $flexGap;
+  flex-direction: $direction;
+}
+
+@mixin inner {
+  width: $inner-width;
+  margin: 0 auto;
+
+  @media (max-width:1200px) {
+    width: 100%;
+    padding: 0 4rem;
+  }
+
+  @media(max-width: $mobile) {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}
+
+@mixin sound_only {
+  font-size: 0;
+  text-indent: -99999;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin only_pc {
+  @media(max-width: $laptop) {
+    display: none;
+  }
+}
+
+@mixin only_mb {
+  @media(min-width: 1025px) {
+    display: none;
+  }
+}
+
+// PARAM animation
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@mixin jump($name: default, $x: 1.1, $y: 0.9, $z: -2rem, $time: 2.4s, $bounce: 0.05) {
+  @keyframes jump__#{$name} {
+    0% {
+      transform: scale(1, 1) translateY(0);
+    }
+
+    5% {
+      transform: scale($x, $y) translateY(0);
+    }
+
+    25% {
+      transform: scale($y, $x) translateY($z);
+    }
+
+    50% {
+      transform: scale($x, $y) translateY(0);
+    }
+
+    60% {
+      transform: scale(#{$x + $bounce}, $y) translateY(0);
+    }
+
+    70% {
+      transform: scale(1, 1) translateY(0);
+    }
+
+    100% {
+      transform: scale(1, 1) translateY(0);
+    }
+  }
+
+  animation: jump__#{$name} $time ease infinite;
+}
+
+@mixin fly($name: default, $y: -1rem, $time: 5s) {
+  @keyframes fly__#{$name} {
+    0% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0)
+    }
+
+    20% {
+      -webkit-transform: translate(0, $y);
+      transform: translate(0, $y)
+    }
+
+    40% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0)
+    }
+
+    60% {
+      -webkit-transform: translate(0, $y);
+      transform: translate(0, $y)
+    }
+
+    80% {
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0)
+    }
+
+    100% {
+      -webkit-transform: translate(0, $y);
+      transform: translate(0, $y)
+    }
+  }
+
+  animation: fly__#{$name} $time infinite alternate-reverse;
+}
+
+// PARAM font mixin
+
+@mixin h1_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 3.2rem;
+}
+
+@mixin h1_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 3.2rem;
+}
+
+@mixin h1_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 3.2rem;
+}
+
+
+@mixin h2_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 2.4rem;
+}
+
+@mixin h2_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 2.4rem;
+}
+
+@mixin h2_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 2.4rem;
+}
+
+@mixin h2_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 2.4rem;
+}
+
+@mixin h3_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 2rem;
+}
+
+@mixin h3_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 2rem;
+}
+
+@mixin h3_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 2rem;
+}
+
+@mixin h3_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 2rem;
+}
+
+@mixin subtitle1_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 1.8rem;
+}
+
+@mixin subtitle1_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 1.8rem;
+}
+
+@mixin subtitle1_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 1.8rem;
+}
+
+@mixin subtitle1_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 1.8rem;
+}
+
+@mixin subtitle2_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 1.6rem;
+}
+
+@mixin subtitle2_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 1.6rem;
+}
+
+@mixin subtitle2_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 1.6rem;
+}
+
+@mixin subtitle2_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 1.6rem;
+}
+
+@mixin body_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 1.4rem;
+}
+
+@mixin body_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 1.4rem;
+}
+
+@mixin body_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 1.4rem;
+}
+
+@mixin body_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 1.4rem;
+}
+
+@mixin caption1_bold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $bold_weight;
+  font-size: 1.2rem;
+}
+
+@mixin caption1_semibold {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $semibold_weight;
+  font-size: 1.2rem;
+}
+
+@mixin caption1_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 1.2rem;
+}
+
+@mixin caption1_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 1.2rem;
+}
+
+@mixin caption2_medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $medium_weight;
+  font-size: 1.0rem;
+}
+
+@mixin caption2_regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: $regular_weight;
+  font-size: 1.0rem;
+}
+
+@mixin poppins {
+  font-family: 'Poppins', 'Pretendard', 'sans-serif';
+}

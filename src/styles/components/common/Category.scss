@@ -1,0 +1,48 @@
+.Category {
+  &__title {
+    @include subtitle1_bold;
+    @include poppins;
+    color: $text_05;
+    transition: color 0.3s;
+  }
+
+  &__menu {
+    margin-top: 2.4rem;
+
+    &-item {
+      @include body_regular;
+      color: $text_03;
+      transition: color $transition-dark;
+      margin-top: 1.2rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &-post {
+      display: inline-block;
+      margin-left: 0.4rem;
+      color: $dark_text_01;
+      transition: color $transition-dark;
+    }
+  }
+}
+
+.dark {
+  .Category {
+    &__title {
+      color: $dark_text_05;
+    }
+
+    &__menu {
+      &-item {
+        color: $dark_text_03;
+      }
+
+      &-post {
+        color: $text_03;
+      }
+    }
+  }
+}

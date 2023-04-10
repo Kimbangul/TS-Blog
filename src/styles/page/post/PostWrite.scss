@@ -1,0 +1,77 @@
+.PostWrite {
+
+  &__info {
+    @extend .PostInfo;
+    border-bottom: none;
+  }
+
+  &__cate {
+    @extend .Input;
+    @extend .PostInfo__cate;
+    padding: 0;
+    border: none !important;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    transition: $transition-dark;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title {
+    &-label {
+      @include sound_only;
+    }
+
+    @extend .Input;
+    @extend .PostInfo__title;
+    padding: 0;
+    display: block;
+    width: 100%;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0;
+    border-bottom-color: transparent !important;
+    background: transparent;
+    transition: $transition-dark;
+  }
+
+  &__tag {
+    @extend .PostInfo__TagList;
+    @extend .Input;
+    width: 100%;
+    padding: 0;
+    border: none !important;
+    background: transparent;
+
+    &::placeholder {
+      color: $text_02;
+    }
+  }
+
+  &__contents {
+    @extend .Post__content;
+    padding-top: 0;
+    padding-bottom: 4rem;
+
+  }
+
+  &__button {
+    @extend .Button--square;
+    min-width: 16rem;
+    background: $purple_01;
+
+    &-container {
+      @include flex(flex-end, center, 1.6rem);
+    }
+
+    &--cancel {
+      @extend .PostWrite__button;
+      background: $border_02;
+      color: $text_03;
+    }
+  }
+}

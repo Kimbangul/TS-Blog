@@ -1,0 +1,34 @@
+// NOTE global
+@import 'src/styles/common/color.scss';
+@import 'src/styles/common/fonts.scss';
+@import 'src/styles/common/variable.scss';
+@import 'src/styles/common/mixin.scss';
+@import 'src/styles/common/global.scss';
+
+// NOTE common & base
+@import 'src/styles/components/common/Button.scss';
+@import 'src/styles/components/common/Category.scss';
+@import 'src/styles/components/common/Input.scss';
+@import 'src/styles/components/common/Profile.scss';
+@import 'src/styles/components/common/TagList.scss';
+@import 'src/styles/components/common/Article.scss';
+@import 'src/styles/components/common/Modal.scss';
+@import 'src/styles/components/common/Login.scss';
+@import 'src/styles/components/common/Join.scss';
+@import 'src/styles/components/common/Skeleton.scss';
+@import 'src/styles/components/common/TuiEditorStyle.scss';
+
+// NOTE layout
+@import 'src/styles/components/common/layout/Header.scss';
+@import 'src/styles/components/common/layout/Footer.scss';
+@import 'src/styles/components/common/layout/Page.scss';
+@import 'src/styles/components/common/layout/Sidebar.scss';
+
+// NOTE page
+@import 'src/styles/page/Main.scss';
+@import 'src/styles/page/post/Post.scss';
+@import 'src/styles/page/category/CategoryPage.scss';
+@import 'src/styles/page/setting/Setting.scss';
+@import 'src/styles/page/search/Search.scss';
+@import 'src/styles/page/404/Error.scss';
+@import 'src/styles/page/auth/VerifyDone.scss';

@@ -1,0 +1,60 @@
+.Main {
+  &__TagList {
+    @extend .TagList;
+    margin-top: 4.8rem;
+    transition: margin 0.3s;
+
+    @media (max-width: $tablet) {
+      margin-top: 1.6rem;
+    }
+  }
+
+  &__Article {
+    &-section {
+      margin-top: 8rem;
+      padding-top: 6rem;
+      border-top: 0.1rem solid $border_02;
+      transition: padding 0.3s;
+
+      @media (max-width: $tablet) {
+        padding-top: 3.2rem;
+      }
+    }
+
+    &-title {
+      @include h2_bold;
+      @include poppins;
+      color: $text_05;
+      transition: color $transition-dark;
+    }
+
+    &List {
+      @extend .ArticleList;
+      margin-top: 6rem;
+
+      &--wrapper {
+        margin-top: 6rem;
+      }
+
+      @media (max-width: $tablet) {
+        margin-top: 3.2rem;
+        transition: margin 0.3s;
+      }
+    }
+  }
+}
+
+
+.dark {
+  .Main {
+    &__Article {
+      &-section {
+        border-top: 0.1rem solid $dark_border_02;
+      }
+
+      &-title {
+        color: $dark_text_05;
+      }
+    }
+  }
+}

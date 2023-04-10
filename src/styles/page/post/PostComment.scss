@@ -1,0 +1,73 @@
+.PostComment {
+
+  &__counter {
+    @include subtitle1_medium;
+    color: $text_05;
+    transition: all $transition-dark;
+
+    &-count {
+      @include subtitle1_bold;
+      color: $purple_01;
+    }
+  }
+
+  &__input {
+
+    &-container {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-areas:
+        "input input2"
+        "textarea textarea"
+      ;
+      margin-top: 2rem;
+
+      @media(max-width: $tablet) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &--name {
+      // @extend .PostComment__input;
+      grid-area: input;
+    }
+
+    &--password {
+      // @extend .PostComment__input;
+      grid-area: input2;
+    }
+  }
+
+  &__textarea {
+    @extend .Input;
+    height: 14rem;
+    grid-area: textarea;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__submit {
+    &-button {
+      @extend .Button;
+      background-color: $purple_01;
+      margin-top: 1.6rem;
+      margin-right: 0;
+      margin-left: auto;
+
+    }
+  }
+
+}
+
+
+.dark {
+  .PostComment {
+    &__counter {
+      color: $dark_text_05;
+    }
+  }
+}

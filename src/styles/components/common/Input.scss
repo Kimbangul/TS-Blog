@@ -1,0 +1,45 @@
+.Input {
+  @include body_regular;
+  padding: 1.6rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid $text_01;
+  background: transparent;
+  transition: $transition-dark;
+  background: $white;
+  color: $text_03;
+
+  &::placeholder {
+    color: $text_01;
+    transition: $transition-dark;
+  }
+
+  &:focus {
+    border-color: $purple_01;
+  }
+
+  &__label {
+    @include body_regular;
+    color: $text_05;
+    transition: color $transition-dark;
+  }
+}
+
+.dark {
+  .Input {
+    background: transparent;
+    border: 0.1rem solid $dark_text_01;
+    color: $dark_text_03;
+
+    &::placeholder {
+      color: $dark_text_01;
+    }
+
+    &:focus {
+      border-color: $purple_01;
+    }
+
+    &__label {
+      color: $dark_text_05;
+    }
+  }
+}

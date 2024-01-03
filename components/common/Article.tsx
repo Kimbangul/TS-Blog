@@ -44,6 +44,7 @@ export const Article: React.FC<ArticlePropsType> = (props) => {
           </div>
           <p className='Article__content'>{props.content}</p>
           {props.tag && <TagList className='Article__TagList' list={props.tag} />}
+          <div className='Article__regDate'> {props.regDate}</div>
         </Link>
       </li>
     </>
@@ -69,7 +70,7 @@ export const ArticleListSkeletonView = (props: ArticleListSkeletonType) => {
             </div>
             <div className='Article__TagList'>
               <TagListSkeletonView length={1} />
-            </div>
+            </div>            
           </li>
         );
       })}
@@ -89,6 +90,7 @@ type ArticlePropsType = {
   tag?: TagPropsType[];
   comment: number;
   link: string;
+  regDate: string;
 };
 
 type ArticleListSkeletonType = {

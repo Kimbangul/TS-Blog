@@ -3,6 +3,7 @@ import Button from 'components/common/Button';
 import ArticleList from 'components/common/Article';
 
 import SEARCH_24 from 'src/assets/icons/common/search_24.svg';
+import moment from 'moment';
 
 const SearchView = () => {
   const articleList = [
@@ -16,6 +17,7 @@ const SearchView = () => {
       ],
       comment: 0,
       link: 'farrar/post/1',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -27,6 +29,7 @@ const SearchView = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -38,6 +41,7 @@ const SearchView = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
   ];
 

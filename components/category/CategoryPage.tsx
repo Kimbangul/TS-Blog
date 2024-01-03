@@ -1,4 +1,5 @@
 import ArticleList from 'components/common/Article';
+import moment from 'moment';
 
 const CategoryPagePage = () => {
   const articleList = [
@@ -12,6 +13,7 @@ const CategoryPagePage = () => {
       ],
       comment: 0,
       link: '/farrar/post/1',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -23,6 +25,7 @@ const CategoryPagePage = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -34,6 +37,7 @@ const CategoryPagePage = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
   ];
 

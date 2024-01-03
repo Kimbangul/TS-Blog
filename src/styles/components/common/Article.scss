@@ -29,12 +29,11 @@
       transition: transform 0.3s;
     }
 
-
     #{$article}:hover &-img {
       transform: scale(1.15);
     }
 
-    @media(max-width: $tablet) {
+    @media (max-width: $tablet) {
       height: 48vw;
       max-height: 32rem;
     }
@@ -65,7 +64,14 @@
 
   &__comment {
     @include subtitle2_semibold;
-    color: #FF8080;
+    color: #ff8080;
+  }
+  &__regDate {
+    @include caption1_regular;
+    text-align: right;
+    color: $text_02;
+    margin-top: 2.4rem;
+    transition: color $transition-dark;
   }
 }
 

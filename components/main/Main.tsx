@@ -6,6 +6,7 @@ import ArticleList, { ArticleListSkeletonView } from 'components/common/Article'
 import { useEffect, useState } from 'react';
 import { AxiosResponse } from 'axios';
 import { useQueries, useQuery } from 'react-query';
+import moment from 'moment';
 
 const Main = () => {
   type Post = {
@@ -54,6 +55,7 @@ const Main = () => {
       ],
       comment: 0,
       link: 'farrar/post/1',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -65,6 +67,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -76,6 +79,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -87,6 +91,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -98,6 +103,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -109,6 +115,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -120,6 +127,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -131,6 +139,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
     {
       id: 0,
@@ -142,6 +151,7 @@ const Main = () => {
       ],
       comment: 0,
       link: '#',
+      regDate: moment().format('YYYY-MM-DD')
     },
   ];
 

@@ -17,8 +17,12 @@ class headerStore {
 
   // FUNCTION action
   setIsOpenSidebar() {
-    this.isOpenSidebar = !this.isOpenSidebar;
+    this.isOpenSidebar = true;
+   // this.isOpenSidebar = !this.isOpenSidebar;
     return;
+  }
+  setIsCloseSidebar(){
+    this.isOpenSidebar = false;
   }
   setIsDarkMode(state: boolean) {
     this.isDarkMode = state;

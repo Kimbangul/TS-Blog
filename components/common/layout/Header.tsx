@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Observer, observer } from 'mobx-react';
 import useStore from 'store/useStore';
 import React, { MouseEvent, useRef, useReducer, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 
 import { useResize } from 'src/hooks/useResize';
 import Button from 'components/common/Button';
@@ -34,23 +34,26 @@ const onEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
   const email = formData.get('email');
 
   if (!(typeof email == 'string')) return;
-  Accounts.SignInEmail({
-    email: email,
-    callback: process.env.NEXT_PUBLIC_LOGIN_CALLBACK_URL || '',
-    scheme: 'http',
-    url: 'localhost:3000',
-  })
-    .then((e) => {
-      if (e.status !== 200) {
-        alert(emailLoginFailHandler(e.status));
-        return;
-      }
-      alert('인증 이메일을 발송했습니다. \n입력한 메일 주소에서 인증을 완료해 주세요.');
-      return;
-    })
-    .catch((e) => {
-      alert(emailLoginFailHandler(e));
-    });
+  // Accounts.SignInEmail({
+  //   email: email,
+  //   callback: process.env.NEXT_PUBLIC_LOGIN_CALLBACK_URL || '',
+  //   scheme: 'http',
+  //   url: 'localhost:3000',
+  // })
+  //   .then((e) => {
+  //     if (e.status !== 200) {
+  //       alert(emailLoginFailHandler(e.status));
+  //       return;
+  //     }
+  //     alert('인증 이메일을 발송했습니다. \n입력한 메일 주소에서 인증을 완료해 주세요.');
+  //     return;
+  //   })
+  //   .catch((e) => {
+  //     alert(emailLoginFailHandler(e));
+  //   });
+  useStore.headerStore.setIsLogin(true);
+  localStorage.setItem('access', 'test access'); 
+  location.reload();
 };
 
 // COMPONENT main component
@@ -59,6 +62,11 @@ const Header: React.FC = () => {
   const size = useResize();
   const sidebarRef = useRef(null);
   const router = useRouter();
+
+  useEffect(()=>{
+      console.log(router.asPath);
+      useStore.headerStore.setIsCloseSidebar();
+  },[router.asPath]);
 
   // PARAM state
   const modalReducer = (state: modalStateType, action: modalPayloadType): modalStateType => {
@@ -79,14 +87,18 @@ const Header: React.FC = () => {
   });
 
   // FUNCTION
-  const onClickMenuBtn = () => {
+  const onClickOpenBtn = () => {
     useStore.headerStore.setIsOpenSidebar();
     return;
   };
 
+  const onClickCloseBtn = () => {
+    useStore.headerStore.setIsCloseSidebar();
+  }
+
   const onClickSideBar = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
     if (e.target === e.currentTarget) {
-      useStore.headerStore.setIsOpenSidebar();
+      onClickCloseBtn();
     }
     return;
   };
@@ -126,6 +138,7 @@ const Header: React.FC = () => {
   /** FUNCTION 로그인 상태 검증 */
   useEffect(() => {
     const access = localStorage.getItem('access');
+    console.log(access);
     if (!access) {
       useStore.headerStore.setIsLogin(false);
       return;
@@ -144,7 +157,7 @@ const Header: React.FC = () => {
             <LoginButton setIsOpenLogin={setIsOpenLoginModal} isLogin={useStore.headerStore.isLogin} onClickLogout={onClickLogout} />
             <DarkModeButton />
           </div>
-          <button className='Header__menu-button' onClick={onClickMenuBtn}>
+          <button className='Header__menu-button' onClick={onClickOpenBtn}>
             <span className='Header__menu-bar'></span>
             <span className='Header__menu-bar'></span>
             <span className='Header__menu-bar'></span>
@@ -154,7 +167,7 @@ const Header: React.FC = () => {
         <div className={getIsSidebarClassName()} ref={sidebarRef} onClick={onClickSideBar}>
           <div className='Header__sidebar-inner' style={useStore.headerStore.sidebarAnimation}>
             <div className='Header__sidebar-close-container'>
-              <CLOSE_24 className='Header__sidebar-close-btn' onClick={onClickMenuBtn} />
+              <CLOSE_24 className='Header__sidebar-close-btn' onClick={onClickCloseBtn} />
             </div>
             <nav className='Header__sidebar-menu'>
               <Category />

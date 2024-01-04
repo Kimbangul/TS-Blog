@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Observer, observer } from 'mobx-react';
 import useStore from 'store/useStore';
 import React, { MouseEvent, useRef, useReducer, useEffect } from 'react';
-import { Router, useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 import { useResize } from 'src/hooks/useResize';
 import Button from 'components/common/Button';
@@ -53,7 +53,7 @@ const onEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
   //   });
   useStore.headerStore.setIsLogin(true);
   localStorage.setItem('access', 'test access'); 
-  location.reload();
+  Router.push('/auth/done');
 };
 
 // COMPONENT main component

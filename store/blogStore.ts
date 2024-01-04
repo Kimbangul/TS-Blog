@@ -7,7 +7,7 @@ class blogStore {
   // PARAM observable
   blogTitle = 'My Blog'; // 블로그 제목
   nickName = 'user_sample'; // 닉네임
-  id = '@sampleUser' // 아이디
+  id = 'sampleUser' // 아이디
   introduction = '' // 한 줄 소개
   profileImg = '' // 프로필 이미지 url 주소
   snsTwitter = '' // 트위터 id

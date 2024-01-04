@@ -8,13 +8,9 @@ import SAMPLE01 from 'src/assets/images/sample01.png';
 import TWITTER_24 from 'src/assets/icons/common/twitter_24.svg';
 import GITHUB_24 from 'src/assets/icons/common/github_24.svg';
 import MAIL_24 from 'src/assets/icons/common/mail_24.svg';
+import useStore from 'store/useStore';
 
 const Profile = () => {
-  const socialLink = {
-    twitter: '#',
-    github: '#',
-    mail: '#',
-  };
   return (
     <div className='Profile'>
       <div className='Profile__img'>
@@ -22,20 +18,29 @@ const Profile = () => {
       </div>
       <div className='Profile__info-container'>
         <div className='Profile__name-container'>
-          <h1 className='Profile__name'>샌드링</h1>
-          <div className='Profile__id'>@Sandring</div>
+          <h1 className='Profile__name'>{useStore.blogStore.nickName}</h1>
+          <div className='Profile__id'>@{useStore.blogStore.id}</div>
         </div>
-        <p className='Profile__introduce'>하이헬로안녕까꿍 에린의 핫섹시큐티 청순가련아이콘 샌드링이여요</p>
+        <p className='Profile__introduce'>{useStore.blogStore.introduction}</p>
         <ul className='Profile__social'>
-          <SocialListItem link={socialLink.twitter}>
-            <TWITTER_24 />
-          </SocialListItem>
-          <SocialListItem link={socialLink.github}>
+          {
+            useStore.blogStore.snsTwitter &&
+            <SocialListItem link={useStore.blogStore.snsTwitter}>
+              <TWITTER_24 />
+            </SocialListItem>
+          }
+          {
+            useStore.blogStore.snsGithub &&
+            <SocialListItem link={`https://github.com/${useStore.blogStore.snsGithub}`}>
             <GITHUB_24 />
           </SocialListItem>
-          <SocialListItem link={socialLink.mail}>
-            <MAIL_24 />
-          </SocialListItem>
+          }
+          {
+            useStore.blogStore.email &&
+            <SocialListItem link={`mailto:${useStore.blogStore.email}`}>
+              <MAIL_24 />
+            </SocialListItem>
+          }
         </ul>
       </div>
     </div>

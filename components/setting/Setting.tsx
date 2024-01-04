@@ -1,8 +1,10 @@
 import { useReducer } from 'react';
 import SettingBoxContainer from 'components/setting/SettingBoxContainer';
 import SettingCategoryContainer from 'components/setting/SettingCategoryContainer';
+import useStore from 'store/useStore';
 
 const Setting = () => {
+  
   const editReducer = (state: EditStateType, action: EditActionType): EditStateType => {
     switch (action.type) {
       case 'SET_EDIT':
@@ -22,16 +24,16 @@ const Setting = () => {
 
   // PARAM 임시 설정 변수
   const defaultSetting = [
-    { cate: '블로그 제목', data: 'sandring@sandring.com', isEditable: true },
-    { cate: '닉네임', data: 'sandring@sandring.com', isEditable: true },
-    { cate: '아이디', data: 'sandring@sandring.com', isEditable: false },
-    { cate: '한줄소개', data: 'sandring@sandring.com', isEditable: true },
+    { cate: '블로그 제목', data: useStore.blogStore.blogTitle, isEditable: true },
+    { cate: '닉네임', data: useStore.blogStore.nickName, isEditable: true },
+    { cate: '아이디', data: useStore.blogStore.id, isEditable: false },
+    { cate: '한줄소개', data: useStore.blogStore.email, isEditable: true },
   ];
-  const profileImg = [{ cate: '프로필 이미지', data: 'sandring@sandring.com', isEditable: true }];
+  const profileImg = [{ cate: '프로필 이미지', data: useStore.blogStore.profileImg, isEditable: true }];
   const snsSetting = [
-    { cate: 'Twitter', data: '@Sandring', isEditable: true },
-    { cate: 'Github', data: '@Sandring', isEditable: true },
-    { cate: 'Email', data: 'sandring@sandring.com', isEditable: true },
+    { cate: 'Twitter', data: useStore.blogStore.snsTwitter, isEditable: true },
+    { cate: 'Github', data: useStore.blogStore.snsGithub, isEditable: true },
+    { cate: 'Email', data: useStore.blogStore.email, isEditable: true },
   ];
   const cateSetting = [
     { cate: 'Twitter', data: '@Sandring', isEditable: true },

@@ -151,7 +151,7 @@ const Header: React.FC = () => {
       <header className='Header'>
         <div className='Header__inner'>
           <div className='Header__title'>
-            <Link href='/'>SANDRING Blog</Link>
+            <Link href='/'>{useStore.blogStore.blogTitle || ''}</Link>
           </div>
           <div className='Header__button-container'>
             <LoginButton setIsOpenLogin={setIsOpenLoginModal} isLogin={useStore.headerStore.isLogin} onClickLogout={onClickLogout} />

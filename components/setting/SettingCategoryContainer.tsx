@@ -4,7 +4,7 @@ import { SettingBoxContainerProps } from 'components/setting/SettingBoxContainer
 import CategoryItem from 'components/setting/CategoryItem';
 import Button from 'components/common/Button';
 
-const SettingCategoryContainer = (props: SettingBoxContainerProps) => {
+const SettingCategoryContainer = (props: SettingCategoryContainerProps) => {
   return (
     <SettingBox title={props.title} isEdit={false}>
       {props.list.map((el) => {
@@ -16,5 +16,14 @@ const SettingCategoryContainer = (props: SettingBoxContainerProps) => {
     </SettingBox>
   );
 };
+
+// export type SettingCategoryContainerProps = SettingBoxContainerProps & {
+//   list: { cate: string; data: string; isEditable: boolean, key: string }[];
+// }
+export type SettingCategoryContainerProps =  {
+  title: string;
+  list: { cate: string; data: string; isEditable: boolean, key: string }[];
+  img?: { cate: string; data: string; isEditable: boolean, key: string }[];
+}
 
 export default SettingCategoryContainer;

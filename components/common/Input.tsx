@@ -1,6 +1,6 @@
 import { HTMLAttributes, HTMLInputTypeAttribute } from 'react';
 
-type PropsType = {
+type PropsType =  HTMLAttributes<HTMLInputElement> & {
   className?: string;
   type: HTMLInputTypeAttribute;
   placeholder?: string;
@@ -9,8 +9,7 @@ type PropsType = {
   value?: string | number;
   required?: boolean;
   maxLength?: number;
-  onChange?: () => unknown;
-} & HTMLAttributes<HTMLInputElement>;
+};
 
 const Input: React.FC<PropsType> = (props) => {
   return (
@@ -28,6 +27,7 @@ const Input: React.FC<PropsType> = (props) => {
         defaultValue={props.value || ''}
         required={props.required}
         maxLength={props.maxLength}
+        onChange={props.onChange}
       />
     </>
   );

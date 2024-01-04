@@ -2,6 +2,7 @@ import { useReducer } from 'react';
 import SettingBoxContainer from 'components/setting/SettingBoxContainer';
 import SettingCategoryContainer from 'components/setting/SettingCategoryContainer';
 import useStore from 'store/useStore';
+import { AttrType } from 'store/blogStore';
 
 const Setting = () => {
   
@@ -35,7 +36,7 @@ const Setting = () => {
     { cate: 'Github', data: useStore.blogStore.snsGithub, isEditable: true, key: 'snsGithub' },
     { cate: 'Email', data: useStore.blogStore.email, isEditable: true, key: 'email' },
   ];
-  const cateSetting : SettingDataType[] = [
+  const cateSetting = [
     { cate: 'Twitter', data: '@Sandring', isEditable: true , key:''},
     { cate: 'Github', data: '@Sandring', isEditable: true, key:'' },
     { cate: 'Email', data: 'sandring@sandring.com', isEditable: true, key: '' },
@@ -68,7 +69,7 @@ export interface SettingDataType {
   cate: string;
   data: string;
   isEditable: boolean;
-  key: string;
+  key: AttrType;
 }
 
 

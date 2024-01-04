@@ -2,11 +2,13 @@ import SettingBox from 'components/setting/SettingBox';
 import SettingBoxItem, { SettingBoxItemType } from 'components/setting/SettingBoxItem';
 import SettingImgItem from 'components/setting/SettingImgItem';
 import { useEffect, useState, useRef } from 'react';
-import { SettingDataType } from './Setting';
+import { SettingDataType } from 'components/setting/Setting';
+import useStore from 'store/useStore';
+import { AttrType, blogStoreType, isTypeAttr } from 'store/blogStore';
 
 
 const convertDataState = (stateArr : SettingDataType[]) => {
-  let convertedArr : {[key:string]:string} = {};
+  let convertedArr : blogStoreType = {};
   stateArr.forEach((el, idx) => {
     convertedArr[el.key] = el.data;
   });
@@ -16,10 +18,11 @@ const convertDataState = (stateArr : SettingDataType[]) => {
 const SettingBoxContainer = (props: SettingBoxContainerProps) => {
   const boxRef = useRef();
   const [isEdit, setIsEdit] = useState(false);
-  const [boxState, setBoxState] = useState(convertDataState(props.list));
+  const [boxState, setBoxState] = useState<blogStoreType>(convertDataState(props.list));
 
-  const updateBoxState = (key:string, value: string) => {
-    setBoxState({...boxState, key: value});
+  const updateBoxState = (key:AttrType, value: string) => {
+
+    setBoxState({...boxState, [key]: value});
   }
 
   useEffect(()=>{
@@ -30,6 +33,10 @@ const SettingBoxContainer = (props: SettingBoxContainerProps) => {
 
   // FUNCTION 저장 처리
   const onClickSave = () => {
+    for (let key in boxState) {
+     if(!isTypeAttr(key) || typeof boxState[key] !== 'string') return;    
+      useStore.blogStore.setUpdate(key, boxState[key] || '');
+    }
   }
 
   return (
@@ -46,16 +53,16 @@ const SettingBoxContainer = (props: SettingBoxContainerProps) => {
 
 export type SettingBoxContainerProps = {
   title: string;
-  list: { cate: string; data: string; isEditable: boolean, key: string }[];
-  img?: { cate: string; data: string; isEditable: boolean, key: string }[];
+  list: { cate: string; data: string; isEditable: boolean, key: AttrType }[];
+  img?: { cate: string; data: string; isEditable: boolean, key: AttrType }[];
 };
 
 export type SettingBoxItemProps = {
   cate: string;
   data: string;
-  keyData: string;
+  keyData: AttrType;
   isEdit: boolean;
-  updateBoxState: (key:string,value:string) => void;
+  updateBoxState: (key:AttrType,value:string) => void;
 }
 
 export default SettingBoxContainer;

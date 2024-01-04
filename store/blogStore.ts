@@ -25,6 +25,13 @@ const store = new blogStore();
 
 // PARAM type
 export type AttrType = 'blogTitle'|'nickName'|'id'|'introduction'|'profileImg'|'snsTwitter'|'snsGithub'|'email';
+export type blogStoreType = {
+  [key in AttrType]?: string;
+};
+
+export function isTypeAttr(param: any): param is AttrType {
+	return true;
+}
 
 
 export default store;

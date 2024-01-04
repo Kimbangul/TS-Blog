@@ -23,22 +23,22 @@ const Setting = () => {
   const [editState, setEditState] = useReducer(editReducer, initialEditState);
 
   // PARAM 임시 설정 변수
-  const defaultSetting = [
-    { cate: '블로그 제목', data: useStore.blogStore.blogTitle, isEditable: true },
-    { cate: '닉네임', data: useStore.blogStore.nickName, isEditable: true },
-    { cate: '아이디', data: useStore.blogStore.id, isEditable: false },
-    { cate: '한줄소개', data: useStore.blogStore.email, isEditable: true },
+  const defaultSetting : SettingDataType[] = [
+    { cate: '블로그 제목', data: useStore.blogStore.blogTitle, isEditable: true, key:'blogTitle' },
+    { cate: '닉네임', data: useStore.blogStore.nickName, isEditable: true, key: 'nickName' },
+    { cate: '아이디', data: useStore.blogStore.id, isEditable: false, key: 'id' },
+    { cate: '한줄소개', data: useStore.blogStore.email, isEditable: true, key: 'introduction' },
   ];
-  const profileImg = [{ cate: '프로필 이미지', data: useStore.blogStore.profileImg, isEditable: true }];
-  const snsSetting = [
-    { cate: 'Twitter', data: useStore.blogStore.snsTwitter, isEditable: true },
-    { cate: 'Github', data: useStore.blogStore.snsGithub, isEditable: true },
-    { cate: 'Email', data: useStore.blogStore.email, isEditable: true },
+  const profileImg : SettingDataType[] = [{ cate: '프로필 이미지', data: useStore.blogStore.profileImg, isEditable: true, key: 'profileImg' }];
+  const snsSetting : SettingDataType[] = [
+    { cate: 'Twitter', data: useStore.blogStore.snsTwitter, isEditable: true, key: 'snsTwitter' },
+    { cate: 'Github', data: useStore.blogStore.snsGithub, isEditable: true, key: 'snsGithub' },
+    { cate: 'Email', data: useStore.blogStore.email, isEditable: true, key: 'email' },
   ];
-  const cateSetting = [
-    { cate: 'Twitter', data: '@Sandring', isEditable: true },
-    { cate: 'Github', data: '@Sandring', isEditable: true },
-    { cate: 'Email', data: 'sandring@sandring.com', isEditable: true },
+  const cateSetting : SettingDataType[] = [
+    { cate: 'Twitter', data: '@Sandring', isEditable: true , key:''},
+    { cate: 'Github', data: '@Sandring', isEditable: true, key:'' },
+    { cate: 'Email', data: 'sandring@sandring.com', isEditable: true, key: '' },
   ];
 
   return (
@@ -63,5 +63,13 @@ type EditActionPayloadType = {
 type EditStateType = {
   [key: string]: boolean;
 };
+
+export interface SettingDataType {
+  cate: string;
+  data: string;
+  isEditable: boolean;
+  key: string;
+}
+
 
 export default Setting;

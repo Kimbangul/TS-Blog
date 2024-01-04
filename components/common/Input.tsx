@@ -8,6 +8,7 @@ type PropsType = {
   name?: string;
   value?: string | number;
   required?: boolean;
+  maxLength?: number;
   onChange?: () => unknown;
 } & HTMLAttributes<HTMLInputElement>;
 
@@ -24,8 +25,9 @@ const Input: React.FC<PropsType> = (props) => {
         className={`Input ${props.className ? props.className : ''}`}
         type={props.type}
         placeholder={props.placeholder}
-        value={props.value}
+        defaultValue={props.value || ''}
         required={props.required}
+        maxLength={props.maxLength}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { LegacyRef, MutableRefObject, ReactNode } from 'react';
 import Button from 'components/common/Button';
 
 const SettingBox = (props: SettingBoxType) => {
@@ -31,7 +31,7 @@ type SettingBoxType = {
   title: string;
   children: JSX.Element | ReactNode | null;
   isEdit: boolean;
-  onClickEditBtn?: () => void;
+  onClickEditBtn?: () => void;  
 };
 
 export default SettingBox;

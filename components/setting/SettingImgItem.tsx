@@ -1,5 +1,5 @@
 import Image from 'next/image';
-
+import { SettingBoxItemProps } from 'components/setting/SettingBoxContainer';
 import SAMPLE01 from 'src/assets/images/sample01.png';
 
 const SettingImgItem = (props: SettingImgItemType) => {
@@ -18,8 +18,5 @@ const SettingImgItem = (props: SettingImgItemType) => {
 
 export default SettingImgItem;
 
-export type SettingImgItemType = {
-  cate: string;
-  data: string;
-  isEdit: boolean;
+export type SettingImgItemType = SettingBoxItemProps & {
 };

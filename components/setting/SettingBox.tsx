@@ -18,7 +18,7 @@ const SettingBox = (props: SettingBoxType) => {
           <Button className='SettingBox__button--cancel' onClick={props.onClickEditBtn}>
             수정 취소
           </Button>
-          <Button className='SettingBox__button' onClick={props.onClickEditBtn}>
+          <Button className='SettingBox__button' onClick={props.onClickSaveBtn}>
             수정 완료
           </Button>
         </div>
@@ -31,7 +31,8 @@ type SettingBoxType = {
   title: string;
   children: JSX.Element | ReactNode | null;
   isEdit: boolean;
-  onClickEditBtn?: () => void;  
+  onClickEditBtn?: () => void;
+  onClickSaveBtn?: ()=>void;  
 };
 
 export default SettingBox;

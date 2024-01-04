@@ -37,10 +37,13 @@ const SettingBoxContainer = (props: SettingBoxContainerProps) => {
      if(!isTypeAttr(key) || typeof boxState[key] !== 'string') return;    
       useStore.blogStore.setUpdate(key, boxState[key] || '');
     }
+
+    setIsEdit(false);
+    if(props.onUpdate) props.onUpdate();
   }
 
   return (
-    <SettingBox title={props.title} isEdit={isEdit} onClickEditBtn={setIsEdit.bind(this, !isEdit)}>
+    <SettingBox title={props.title} isEdit={isEdit} onClickEditBtn={setIsEdit.bind(this, !isEdit)} onClickSaveBtn={onClickSave}>
       {props.list.map((el) => {
         return <SettingBoxItem key={el.cate} cate={el.cate} data={el.data} keyData={el.key} isEdit={isEdit ? el.isEditable : false} updateBoxState={updateBoxState}/>;
       })}
@@ -55,6 +58,7 @@ export type SettingBoxContainerProps = {
   title: string;
   list: { cate: string; data: string; isEditable: boolean, key: AttrType }[];
   img?: { cate: string; data: string; isEditable: boolean, key: AttrType }[];
+  onUpdate?: ()=>void
 };
 
 export type SettingBoxItemProps = {

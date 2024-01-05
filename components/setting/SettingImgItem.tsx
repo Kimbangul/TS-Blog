@@ -8,8 +8,17 @@ const SettingImgItem = (props: SettingImgItemType) => {
       <div className='SettingBoxItem__cate--top'>{props.cate}</div>
       <div className='SettingBoxItem__img-data'>
         <div className='SettingBoxItem__img'>
-          <Image src={SAMPLE01} alt='프로필 이미지' />
-          {props.isEdit && <button className='SettingBoxItem__img-delete'>이미지 삭제</button>}
+          {props.data ? 
+            <>
+              <Image src={props.data} alt='프로필 이미지' />
+              {props.isEdit && <button className='SettingBoxItem__img-delete'>이미지 삭제</button>}
+            </> :
+            <>
+              <div className='SettingBoxItem__img-noimg'>No image</div>
+              {props.isEdit && <button className='SettingBoxItem__img-delete'>이미지 업로드</button>}
+            </>
+          }
+          
         </div>
       </div>
     </li>

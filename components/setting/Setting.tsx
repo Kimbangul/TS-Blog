@@ -10,7 +10,7 @@ import { AttrType } from 'store/blogStore';
     { cate: '블로그 제목', data: useStore.blogStore.blogTitle, isEditable: true, key:'blogTitle' },
     { cate: '닉네임', data: useStore.blogStore.nickName, isEditable: true, key: 'nickName' },
     { cate: '아이디', data: useStore.blogStore.id, isEditable: false, key: 'id' },
-    { cate: '한줄소개', data: useStore.blogStore.email, isEditable: true, key: 'introduction' },
+    { cate: '한줄소개', data: useStore.blogStore.introduction, isEditable: true, key: 'introduction' },
   ];
   const getProfileImg : () => SettingDataType[] = () => [{ cate: '프로필 이미지', data: useStore.blogStore.profileImg, isEditable: true, key: 'profileImg' }];
   const getSnsSetting : () => SettingDataType[] = () => [

@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog
+## 🔍요약
+* 제작 기간 : (1차)2023.02 ~ 2023.04 (2차)2024.01 ~ 진행 중
+* 사용 기술스택 : Next.js, TypeScript, SCSS, Mobx, React-query
+* 구현 기능 : 메인 페이지, 로그인, 카테고리 포스트 목록, 포스트 상세, 포스트 작성, 검색, 설정
 
-## Getting Started
+## 📝설명
+개인 토이 프로젝트로 작업 중인 블로그 프로젝트입니다.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 메인 페이지
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/2fc9d10c-af33-43cc-959a-1ca84e4880df)
+![127 0 0 1_3000_farrar_1](https://github.com/Kimbangul/TS-Blog/assets/65225446/e8f38263-0522-47bd-974d-184bb305cfea)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 로그인
+![127 0 0 1_3000_farrar](https://github.com/Kimbangul/TS-Blog/assets/65225446/13568ad3-8605-4c72-a763-ffe0e3a358a3)
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/1a4ce7d0-7fc1-49a4-9bfb-ed0d25d16980)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 카테고리
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/636be1a6-04c1-45ee-ab88-c7acaabf5f3d)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 포스트
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/0ad1baa3-37d2-4b02-b28d-b529925339bc)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 포스트 작성
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/46b63348-f057-432c-b2a0-136a831da409)
 
-## Learn More
+### 검색
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/c3bf8a5e-d72d-4593-9588-67ab12ef0a10)
 
-To learn more about Next.js, take a look at the following resources:
+### 설정
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/154da35b-7806-4a63-b40b-b1db5adf60a8)
+![image](https://github.com/Kimbangul/TS-Blog/assets/65225446/c9ebb44a-68be-4656-b2c3-90f37a950387)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

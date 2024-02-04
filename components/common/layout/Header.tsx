@@ -52,7 +52,7 @@ const onEmailLogin = (e: React.FormEvent<HTMLFormElement>) => {
   //     alert(emailLoginFailHandler(e));
   //   });
   useStore.headerStore.setIsLogin(true);
-  localStorage.setItem('access', 'test access'); 
+  sessionStorage.setItem('access', 'test access'); 
   Router.push('/auth/done');
 };
 
@@ -128,8 +128,8 @@ const Header: React.FC = () => {
   };
 
   const onClickLogout = () => {
-    localStorage.removeItem('access');
-    localStorage.removeItem('bangul_coo_key');
+    sessionStorage.removeItem('access');
+    sessionStorage.removeItem('bangul_coo_key');
     alert('로그아웃 되었습니다.');
     router.reload();
     return;
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
 
   /** FUNCTION 로그인 상태 검증 */
   useEffect(() => {
-    const access = localStorage.getItem('access');
+    const access = sessionStorage.getItem('access');
     console.log(access);
     if (!access) {
       useStore.headerStore.setIsLogin(false);

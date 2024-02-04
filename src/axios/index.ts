@@ -29,7 +29,7 @@ class AxiosClient {
   requestFullFilled(
     config: InternalAxiosRequestConfig<any>
   ): InternalAxiosRequestConfig<any> {
-    const access = localStorage.getItem('access');
+    const access = sessionStorage.getItem('access');
     if (access) {
       config.headers.set('Authorization', `Bearer ${access}`);
     }

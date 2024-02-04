@@ -6,7 +6,7 @@ const useMyInfo = () => {
   const { status, data, error, refetch } = useQuery(
     'userInfo',
     () => {
-      if (!localStorage.getItem('access')) {
+      if (!sessionStorage.getItem('access')) {
         return null;
       }
 

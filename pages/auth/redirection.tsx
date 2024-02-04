@@ -7,8 +7,8 @@ import { getKakaoAccessCode, tryKakaoLogin } from 'src/utils/kakaoLoginHandler';
 
 export const TokenHandler = {
   setToken({ access, refresh }: TokenResponseType) {
-    localStorage.setItem('access', access);
-    localStorage.setItem('bangul_coo_key', refresh);
+    sessionStorage.setItem('access', access);
+    sessionStorage.setItem('bangul_coo_key', refresh);
   },
 };
 const Redirection: NextPage<{ code: string; state?: 'kakao' }> = ({ code, state }) => {

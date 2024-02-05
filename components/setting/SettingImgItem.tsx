@@ -1,8 +1,19 @@
 import Image from 'next/image';
 import { SettingBoxItemProps } from 'components/setting/SettingBoxContainer';
+import useStore from 'store/useStore';
 import SAMPLE01 from 'src/assets/images/sample01.png';
+import { AttrType } from 'store/blogStore';
+import validateFileType from 'src/utils/validateFileType';
 
 const SettingImgItem = (props: SettingImgItemType) => {
+  const onChangeValue = (key:AttrType, value: string) => {
+    // props.updateBoxState(key, value);
+    console.log('img');
+    props.updateBoxState(key, value);
+  }
+
+
+
   return (
     <li className='SettingBoxItem'>
       <div className='SettingBoxItem__cate--top'>{props.cate}</div>
@@ -18,8 +29,13 @@ const SettingImgItem = (props: SettingImgItemType) => {
               {props.isEdit && <button className='SettingBoxItem__img-delete'>이미지 업로드</button>}
             </>
           }
-          
         </div>
+        <input type="file" 
+          className='SettingBoxItem__img-file' 
+          id='imgUploadInput'
+          accept="image/*"
+         onChange={(e)=>{validateFileType(e.target.value, ()=>{console.log(e.target.value)})}}
+         />
       </div>
     </li>
   );

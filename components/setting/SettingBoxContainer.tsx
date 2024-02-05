@@ -20,8 +20,8 @@ const SettingBoxContainer = (props: SettingBoxContainerProps) => {
   const [isEdit, setIsEdit] = useState(false);
   const [boxState, setBoxState] = useState<blogStoreType>(convertDataState(props.list));
 
+  // FUNCTION 임시 저장 상태 업데이트
   const updateBoxState = (key:AttrType, value: string) => {
-
     setBoxState({...boxState, [key]: value});
   }
 
@@ -39,7 +39,7 @@ const SettingBoxContainer = (props: SettingBoxContainerProps) => {
     }
 
     setIsEdit(false);
-    if(props.onUpdate) props.onUpdate();
+    if(props.onUpdate) props.onUpdate(); // 전역상태 -> 로컬상태 업데이트
   }
 
   return (

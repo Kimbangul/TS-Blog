@@ -20,7 +20,10 @@ const Main = () => {
   const { isLoading, data, error, refetch, isIdle } = useQuery(
     'postList',
     async () => {
-      const res = await axios.get('https://api.honeycombpizza.link/velog/kimbangul');
+      const res = await axios.get(`https://www.yerim-e.com/api/post`, { params: {
+        id: 'kimbangul',
+        count: 3
+      }});
       console.log(res.data);
       return res.data;
     }

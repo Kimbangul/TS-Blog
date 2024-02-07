@@ -5,6 +5,7 @@ import useStore from 'store/useStore';
 import SAMPLE01 from 'src/assets/images/sample01.png';
 import { AttrType } from 'store/blogStore';
 import validateFileType from 'src/utils/validateFileType';
+import { File } from 'src/api';
 
 const SettingImgItem = (props: SettingImgItemType) => {
   // const [isImgUploaded, seIsImgUploaded] = useMemo(()=>{},[]);
@@ -19,7 +20,10 @@ const SettingImgItem = (props: SettingImgItemType) => {
     console.log('img');
     console.log(value);
     props.updateBoxState(key, value);
-    setImgSrc(value);
+    //TODO test
+    const data = File.upload(value);
+    console.log(data);
+  //  setImgSrc(value);
   }
 
   const onClickUpload = (e:React.MouseEvent) => {
@@ -48,13 +52,15 @@ const SettingImgItem = (props: SettingImgItemType) => {
             </>
           }
         </div>
-        <input type="file" 
-          className='SettingBoxItem__img-file' 
-          id='imgUploadInput'
-          accept="image/*"
-          ref={inputRef}
-          onChange={(e)=>{validateFileType(e.target.value, onChangeValue(props.keyData, e.target.value))}}
-         />
+        <form id="imgUploadForm" method="post" action="upload" encType="multipart/form-data">
+          <input type="file" 
+            className='SettingBoxItem__img-file' 
+            id='imgUploadInput'
+            accept="image/*"
+            ref={inputRef}
+            onChange={(e)=>{validateFileType(e.target.value, onChangeValue(props.keyData, e.target.value))}}
+          />
+        </form>
       </div>
     </li>
   );

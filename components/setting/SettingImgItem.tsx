@@ -6,6 +6,7 @@ import SAMPLE01 from 'src/assets/images/sample01.png';
 import { AttrType } from 'store/blogStore';
 import validateFileType from 'src/utils/validateFileType';
 import { File } from 'src/api';
+import axios, { AxiosResponse } from 'axios';
 
 const SettingImgItem = (props: SettingImgItemType) => {
   // const [isImgUploaded, seIsImgUploaded] = useMemo(()=>{},[]);
@@ -14,18 +15,35 @@ const SettingImgItem = (props: SettingImgItemType) => {
  );
 
   const inputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // FUNCTION 부모 컴포넌트의 상태로 저장
+  // FUNCTION 부모 컴포넌트(로컬)의 상태로 저장
   const onChangeValue = (key:AttrType, value: string) => () => {
     console.log('img');
     console.log(value);
     props.updateBoxState(key, value);
     //TODO test
-    const data = File.upload(value);
-    console.log(data);
+    // const data = File.upload(value);
+    // console.log(data);
+    if(formRef.current){
+      const formData = new FormData();    
+      //formData.append();
+      console.log(formData);
+      // const result: AxiosResponse<{ message: string }> = await axios.post(
+      //   "/api/upload",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Contest-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
+    }   
+  // // TODO test end
   //  setImgSrc(value);
   }
 
+  // FUNCTION 이미지 업로드
   const onClickUpload = (e:React.MouseEvent) => {
     e.preventDefault();
     if(!inputRef.current) return;
@@ -52,7 +70,7 @@ const SettingImgItem = (props: SettingImgItemType) => {
             </>
           }
         </div>
-        <form id="imgUploadForm" method="post" action="upload" encType="multipart/form-data">
+        <form id="imgUploadForm" method="post" action="upload" encType="multipart/form-data" ref={formRef}>
           <input type="file" 
             className='SettingBoxItem__img-file' 
             id='imgUploadInput'
